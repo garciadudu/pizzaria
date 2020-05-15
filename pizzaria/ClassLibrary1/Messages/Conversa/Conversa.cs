@@ -11,7 +11,7 @@ namespace Pizzaria.Dominio.Messages.Conversa
 
     public class ConversaMetaData
     {
-        string Phone;
-        string Conversa;
+        public string Phone;
+        public string Conversa;
     }
 }

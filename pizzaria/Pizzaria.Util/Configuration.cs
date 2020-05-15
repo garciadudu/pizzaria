@@ -6,7 +6,7 @@ namespace Pizzaria.Util
 {
     public static class Configuration
     {
-        static IConfigurationRoot _configuration { get; set; }
+        static IConfiguration _configuration { get; set; }
 
         static Configuration()
         {
@@ -24,10 +24,17 @@ namespace Pizzaria.Util
             }
         }
 
-        public static string GetStringProperty(string v)
+        public static IConfiguration Create()
         {
-            return _configuration.GetConnectionString(v);
+            try
+            {
+                return _configuration;
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+     
         }
     }
-    
 }

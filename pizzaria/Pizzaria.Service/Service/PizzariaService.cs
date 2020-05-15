@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using Pizzaria.Dominio.Enum;
 using Pizzaria.Infraestrutura.Factory;
 using Pizzaria.Infraestrutura.Interface;
@@ -16,13 +17,12 @@ namespace Pizzaria.Service.Service
     {
         public ServiceStatus ServiceStatus { get; private set;  } = ServiceStatus.Raising;
 
-
         public CancellationTokenSource StartService()
         {
             IList<IMQConnection> messageConnectors = null;
 
             var tokenSource = new CancellationTokenSource();
-            string Queues = Configuration.GetStringProperty("Pizzaria");
+            string Queues = Configuration.Create().GetSection("Filas").Value;
 
             var t = Task.Run(() =>
             {
@@ -68,12 +68,12 @@ namespace Pizzaria.Service.Service
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
         }
 
         public void Disposable()
         {
-            throw new NotImplementedException();
+            this.Dispose();
         }
 
         private async void MessageConnector_MessageArrived(object sender, IMQConnection messageConnector, Dominio.EventModel.MessageArrivedArgs e)

@@ -16,8 +16,6 @@ namespace Pizzaria.Infraestrutura.Implementation
         private IConnection _RabbitConnection = null;
         private IModel _QueueChannel = null;
 
-        private event MessageArrivedEventHandler MessageArrived;
-
         private EventingBasicConsumer CallbackEvent = null;
 
         public RabbitMQConnection(string Hostname, string Username, string Password)
@@ -30,18 +28,7 @@ namespace Pizzaria.Infraestrutura.Implementation
             Configure(Hostname, Port, Username, Password);
         }
 
-        event MessageArrivedEventHandler IMQConnection.MessageArrived
-        {
-            add
-            {
-                throw new NotImplementedException();
-            }
-
-            remove
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public event MessageArrivedEventHandler MessageArrived;
 
         private void Configure(string Hostname, string Username, string Password)
         {
@@ -149,7 +136,7 @@ namespace Pizzaria.Infraestrutura.Implementation
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
         }
     }
 }

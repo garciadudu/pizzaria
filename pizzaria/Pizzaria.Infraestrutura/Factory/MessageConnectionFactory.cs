@@ -1,4 +1,5 @@
-﻿using Pizzaria.Dominio.Enum;
+﻿using Microsoft.Extensions.Configuration;
+using Pizzaria.Dominio.Enum;
 using Pizzaria.Infraestrutura.Implementation;
 using Pizzaria.Infraestrutura.Interface;
 using Pizzaria.Util;
@@ -40,17 +41,17 @@ namespace Pizzaria.Infraestrutura.Factory
 
         public static IMQConnection CriarConexaoMQ()
         {
-            string connectionTypeName = Configuration.GetStringProperty("Message:Connection").ToUpper();
+            string connectionTypeName = Configuration.Create().GetSection("Message:Connection").Value;
 
             MQConnectionTypeEnum connectionType = Enum.Parse<MQConnectionTypeEnum>(connectionTypeName, true);
 
             Dominio.ConfigurationModel.MQConnection mqConnection = new Dominio.ConfigurationModel.MQConnection
             {
                 ConnectionType = connectionType,
-                Hostname = Configuration.GetStringProperty("ConnectionStrings:MQConnection:HostName"),
-                Port = Convert.ToInt32(Configuration.GetStringProperty("ConnectionStrings:MQConnection:Port")),
-                Username = Configuration.GetStringProperty("ConnectionStrings:MQConnection:Username"),
-                Password = Configuration.GetStringProperty("ConnectionStrings:MQConnection:Password")
+                Hostname = Configuration.Create().GetSection("ConnectionStrings:MQConnection:HostName").Value,
+                Port = Convert.ToInt32(Configuration.Create().GetSection("ConnectionStrings:MQConnection:Port").Value),
+                Username = Configuration.Create().GetSection("ConnectionStrings:MQConnection:Username").Value,
+                Password = Configuration.Create().GetSection("ConnectionStrings:MQConnection:Password").Value
             };
 
             return CriarConexaoMQ(mqConnection.ConnectionType, mqConnection.Hostname, mqConnection.Port, mqConnection.Username, mqConnection.Password);
