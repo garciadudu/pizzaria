@@ -1,0 +1,9 @@
+C:\sistemas\git\pizzaria\pizzaria\Pizzaria.Util\bin\Debug\netcoreapp2.1\Pizzaria.Util.deps.json
+C:\sistemas\git\pizzaria\pizzaria\Pizzaria.Util\bin\Debug\netcoreapp2.1\Pizzaria.Util.dll
+C:\sistemas\git\pizzaria\pizzaria\Pizzaria.Util\obj\Debug\netcoreapp2.1\Pizzaria.Util.csproj.CoreCompileInputs.cache
+C:\sistemas\git\pizzaria\pizzaria\Pizzaria.Util\obj\Debug\netcoreapp2.1\Pizzaria.Util.AssemblyInfoInputs.cache
+C:\sistemas\git\pizzaria\pizzaria\Pizzaria.Util\obj\Debug\netcoreapp2.1\Pizzaria.Util.AssemblyInfo.cs
+C:\sistemas\git\pizzaria\pizzaria\Pizzaria.Util\obj\Debug\netcoreapp2.1\Pizzaria.Util.csprojAssemblyReference.cache
+C:\sistemas\git\pizzaria\pizzaria\Pizzaria.Util\bin\Debug\netcoreapp2.1\Pizzaria.Util.pdb
+C:\sistemas\git\pizzaria\pizzaria\Pizzaria.Util\obj\Debug\netcoreapp2.1\Pizzaria.Util.dll
+C:\sistemas\git\pizzaria\pizzaria\Pizzaria.Util\obj\Debug\netcoreapp2.1\Pizzaria.Util.pdb
